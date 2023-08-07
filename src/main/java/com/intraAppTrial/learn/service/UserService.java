@@ -24,14 +24,17 @@ public class UserService {
 //        }
 
         UserEntity userEntity = new UserEntity();
-        userEntity.setMessage(userDto.getMessage());
-        userEntity.setName(userDto.getName());
+        userEntity.setFirstName(userDto.getFirstName());
+        userEntity.setMiddleInitial(userDto.getMiddleInitial());
+        userEntity.setLastName(userDto.getLastName());
+        userEntity.setEmail(userDto.getEmail());
+        userEntity.setPhone(userDto.getPhone());
 
         try{
             UserEntity savedUserEntity = userRepository.save(userEntity);
             return UserMapper.entityToDto((savedUserEntity));
         }catch (DataIntegrityViolationException e){
-            throw new RuntimeException("Failed to create user {} "+ userDto.getMessage());
+            throw new RuntimeException("Failed to create user for " +  userDto.getFirstName() +" "+ userDto.getLastName());
         }
     }
 }

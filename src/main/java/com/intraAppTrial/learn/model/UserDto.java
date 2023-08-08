@@ -3,6 +3,8 @@ package com.intraAppTrial.learn.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import lombok.Data;
+import org.apache.tomcat.jni.Address;
+
 @Data
 public class UserDto {
 
@@ -21,4 +23,7 @@ public class UserDto {
 
     @Schema(description = "Phone Number",example = "012-345-6789", required = true)
     private String phone;
+
+
+    private AddressDto address;
 }

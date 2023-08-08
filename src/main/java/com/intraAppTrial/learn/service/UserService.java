@@ -3,6 +3,7 @@ package com.intraAppTrial.learn.service;
 import com.intraAppTrial.learn.mapper.UserMapper;
 import com.intraAppTrial.learn.model.UserDto;
 import com.intraAppTrial.learn.repository.UserRepository;
+import com.intraAppTrial.learn.repository.model.AddressEntity;
 import com.intraAppTrial.learn.repository.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -29,6 +30,9 @@ public class UserService {
         userEntity.setLastName(userDto.getLastName());
         userEntity.setEmail(userDto.getEmail());
         userEntity.setPhone(userDto.getPhone());
+
+        AddressEntity addressEntity = UserMapper.addressDtoToAddressEntity(userDto.getAddress());
+        userEntity.setAddress(addressEntity);
 
         try{
             UserEntity savedUserEntity = userRepository.save(userEntity);

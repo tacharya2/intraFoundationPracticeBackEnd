@@ -30,4 +30,7 @@ public class UserEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private AddressEntity address;
+
+    @Column(name = "password")
+    private String password;
 }

@@ -24,6 +24,9 @@ public class UserDto {
     @Schema(description = "Phone Number",example = "012-345-6789", required = true)
     private String phone;
 
+    @Schema(description = "Password",example = "<PASSWORD>", required = true)
+    private String password;
+
 
     private AddressDto address;
 }

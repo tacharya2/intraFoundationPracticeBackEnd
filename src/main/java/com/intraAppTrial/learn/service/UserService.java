@@ -25,17 +25,6 @@ public class UserService {
 
     public UserDto createUser(UserDto userDto){
 
-       // Hash the password before saving into the database
-//        String encodedPassword = passwordEncoder.encode(userDto.getPassword());
-//        userDto.setPassword(encodedPassword);
-
-//        if (userDto.getFirstName() == null || userDto.getFirstName().trim().isEmpty()) {}
-
-
-//        if (userDto.getMessage() == null || userDto.getMessage().trim().isEmpty()) {
-//            throw new IllegalArgumentException("Message cannot be blank or empty.");
-//        }
-
         UserEntity userEntity = new UserEntity();
         userEntity.setFirstName(userDto.getFirstName());
         userEntity.setMiddleInitial(userDto.getMiddleInitial());
